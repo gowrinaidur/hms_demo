@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>:: Exusmed ::</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">  
+  
+  <% if content_for?(:header_tag) %>
+		<%= yield(:header_tag) %>
+	<% else %>		
+  	<%= stylesheet_link_tag "exusmed" %>
+  <%end%>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  
+</head>
+<body>
+	<div class="wrapper">
+	  <div class="wrapper_in">
+	    <div class="header">
+	      <div class="logo"><%= link_to image_tag("logo.png",:alt=>"logo"),root_path%></div>
+	      <div class="payoff"><%= image_tag("payoff-img.png",:alt=>"payoff") %></div>
+	      <div class="login_column">
+	        <ul>
+	          <li><a href="#" class="my-button">Log-In/Register</a></li>
+	          <li><span>Register for Free</span></li>
+	        </ul>
+	      </div>
+	    </div>
+	    <div class="element_to_pop_up" style="display:none;top: 150px;">
+	      <div id="htabs-outer"> 
+	        <!--begin htab outer panels-->
+	        <div id="vtabs"> 
+	          <!--begin vtab menu-->
+	          <ul class="svg">
+	            <li><a href="#vtab-1">Member</a></li>
+	            <li class="provider"><span></span><a href="#vtab-2"><img src="assets/provider.png" alt="provider">Provider</a></li>
+	          </ul>
+	          <!--end vtab menu--> 
+	          <!--begin vtab panels-->
+	          <div id="vtab-1">
+	            <div id="htabs-inner"> 
+	              <!--begin htab inner panels-->
+	          	<%= form_tag({:controller=>"members",:action=>"login"},{:id=>"member_login_form",:method=>:post}) do %>
+	          		<%= hidden_field_tag :member_login_type %>
+	              <div class="tabs-content">
+	                <div id="Login">
+	                	<%= text_field_tag :member_username,nil,:placeholder=>"username" %>
+	                	<%= password_field_tag :member_password,nil,:placeholder=>"password"%>
+	                  <!-- <input type="text" placeholder="username">
+	                  <input type="password" placeholder="password"> -->
+	                  <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
+	                  <a href="#">Troubles logging in?</a> </div>
+	                <div id="Register">
+	                	<%= text_field_tag "member[user_name]",nil,:placeholder=>"username" %>
+	                	<%= password_field_tag "member[password]",nil,:placeholder=>"password"%>
+	                	<%= text_field_tag "member[email]",nil,:placeholder=>"email" %>
+	                	<%= text_field_tag "member[phone_number]",nil,:placeholder=>"mobile"%>
+	                  <!-- <input type="text" placeholder="username">
+	                  <input type="text" placeholder="email">
+	                  <input type="text" placeholder="mobile">
+	                  <input type="password" placeholder="password"> -->
+	                  <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
+	                  </div>
+	              </div>
+	              <!--end htab inner panels-->
+	              <!--begin htab inner menu-->
+	              <ul class="tabs-inner">	              	
+	                <li><%= link_to 'Login', "#Login", :onclick => "login_form_submit('member_login_form','login','member')" %>
+	                	<!-- <a href="#Login">Login</a> --><span></span>
+	                </li>
+	                <li class="register">
+	                	<%= link_to 'Register', "#Register", :onclick => "login_form_submit('member_login_form','register','member')" %>
+	                	<!-- <a href="#Register">Register</a> -->
+	                	<strong></strong></li>
+	              </ul>
+	            <% end %>
+	              <!--end htab inner menu--> 
+	            </div>
+	          </div>
+	          <div id="vtab-2">
+	            <div id="htabs-inner2"> 
+	              <!--begin htab inner panels-->
+	              <%= form_tag({:controller=>"providers",:action=>"login"},{:id=>"provider_login_form",:method=>:post}) do %>
+	          			<%= hidden_field_tag :provider_login_type %>
+	              <div class="tabs-content">
+	                <div id="Login">
+	                	<%= text_field_tag :provider_username,nil,:placeholder=>"username" %>
+	                	<%= password_field_tag :provider_password,nil,:placeholder=>"password"%>
+	                  <!-- <input type="text" placeholder="username">
+	                  <input type="password" placeholder="password"> -->
+	                  <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
+	                  <a href="#">Troubles logging in?</a> </div>
+	                <div id="Register">
+	                	<%= text_field_tag "provider[user_name]",nil,:placeholder=>"username" %>
+	                	<%= password_field_tag "provider[password]",nil,:placeholder=>"password"%>
+	                	<%= text_field_tag "provider[email]",nil,:placeholder=>"email" %>
+	                	<%= text_field_tag "provider[phone_number]",nil,:placeholder=>"mobile"%>
+	                  <!-- <input type="text" placeholder="username">
+	                  <input type="text" placeholder="email">
+	                  <input type="text" placeholder="mobile">
+	                  <input type="password" placeholder="password"> -->
+	                  <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
+	                  </div>
+	              </div>
+	              <!--end htab inner panels--> 
+	              <!--begin htab inner menu-->
+	              <ul class="tabs-inner">	              	
+	                <li><%= link_to 'Login', "#Login", :onclick => "login_form_submit('provider_login_form','login','provider')" %>
+	                	<!-- <a href="#Login">Login</a> --><span></span>
+	                </li>
+	                <li class="register">
+	                	<%= link_to 'Register', "#Register", :onclick => "login_form_submit('provider_login_form','register','provider')" %>
+	                	<!-- <a href="#Register">Register</a> -->
+	                	<strong></strong></li>
+	              </ul>
+	            <% end %>
+	              <!-- <div class="tabs-content">
+	                <div id="Login2">
+	                  <input type="text" placeholder="username">
+	                  <input type="password" placeholder="password">
+	                  <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
+	                  <a href="#">Troubles logging in?</a> </div>
+	                <div id="Register2">
+	                  <input type="text" placeholder="username">
+	                  <input type="text" placeholder="email">
+	                  <input type="text" placeholder="mobile">
+	                  <input type="password" placeholder="password">
+	                  <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
+	                  </div>
+	              </div>
+	              <ul class="tabs-inner">
+	                <li><a href="#Login2">Login</a><span></span></li>
+	                <li class="register"><a href="#Register2">Register</a><strong></strong></li>
+	              </ul> -->
+	            </div>
+	          </div>
+	          <div class="tab_txt">
+	            <p>By using our site and/or services you signify that you agree to our Terms and Conditions and Privacy Policy, and you confirm that you’re 18 yearsof age or older. </p>
+	          </div>
+	          <!--end vtab panels--> 
+	        </div>
+	        
+	        <!--end htab outer panels--> 
+	      </div>
+	      <a class="b-close" title="close">X</a> 
+	    </div>
+	    <!-- header ends-->
+	    <div class="clear"></div>
+	    <div class="main_content">
+	      <div class="content">
+	        <div class="left_menu">	        	 
+	        	<% if content_for?(:left_menu) %>
+						  <%= yield(:left_menu) %>
+						<% else %>						  
+		          <ul>
+		            <li class="video"><a href="#">Videos</a></li>
+		            <li class="news"><a href="#">news</a></li>
+		            <li class="blog"><a href="#">blogs</a></li>
+		          </ul>
+						<% end %>
+	        </div>
+	        <!-- left_menu ends-->	        
+	        <div class="right_menu">
+	        	<% if content_for?(:right_menu) %>
+						  <%= yield(:right_menu) %>
+						<% else %>						  
+		          <ul>
+		            <li class="help"><a href="#">help</a></li>		            
+		          </ul>
+						<% end %>	          
+	        </div>
+	        <!-- right_menu ends--> 
+	      </div>
+	      <!-- content ends--> 
+	    </div>
+	    <!-- main_content ends-->
+	    <div class="bottom_content">
+	      <div class="bottom_content_inner">
+	        <div class="left_column"><a href="#">our Programs</a></div>
+	        <div class="mid_column">
+	          <div class="video_element"><a href="#" class="my-button2"><img src="assets/video_img1.png" alt=""><span></span></a></div>
+	          <div class="video_element2"><a href="#" class="my-button3"><img src="assets/video_img2.png" alt=""><span></span></a></div>
+	        </div>
+	        <div class="element_to_pop_up2" style="display:none;">
+	          <!-- <iframe width="551" height="305" src="http://www.youtube.com/embed/XGSy3_Czz8k" allowfullscreen></iframe> -->
+	          <a class="b-close2" title="close">X</a> </div>
+	        <!-- video_element1 pop up ends-->
+	        <div class="element_to_pop_up3" style="display:none;">
+	          <!-- <iframe width="551" height="305" src="http://www.youtube.com/embed/XGSy3_Czz8k" allowfullscreen></iframe> -->
+	          <a class="b-close2" title="close">X</a> </div>
+	        <!-- video_element2 pop up ends-->
+	        <div class="right_column"><a href="#">About us </a></div>
+	        <div class="clear"></div>
+	        <div class="search-area">
+	          <input type="text" placeholder="search">
+	        </div>
+	      </div>
+	    </div>
+	    <!-- bottom_column ends-->
+	    <div class="clear"></div>
+	  </div>
+	  <!-- wrapper_in ends-->
+	  
+	  <div class="footer">
+	    <div class="footer_in">
+	      <ul class="site_links">
+	        <li><a href="#">Contact us</a></li>
+	        <li>-</li>
+	        <li><a href="#">privacy policy </a></li>
+	        <li>-</li>
+	        <li><a href="#">terms and conditions</a></li>
+	        <li>-</li>
+	        <li><a href="#">security statement</a></li>
+	        <li>-</li>
+	        <li><a href="#">faq</a></li>
+	        <li>-</li>
+	        <li><a href="#">investment</a></li>
+	        <li>-</li>
+	        <li><a href="#">news</a></li>
+	        <li>-</li>
+	        <li><a href="#">videos</a></li>
+	      </ul>
+	      <ul class="social_icons">
+	        <li><a href="#"><img src="assets/fb_icon.png" title="Facebook" alt=""></a></li>
+	        <li><a href="#"><img src="assets/yt_icon.png" title="Youtube" alt=""></a></li>
+	        <li><a href="#"><img src="assets/instagram.png" title="instagram" alt=""></a></li>
+	        <li><a href="#"><img src="assets/twiter_icon.png" title="Twitter" alt=""></a></li>
+	        <li><a href="#"><img src="assets/Stumble-icon.png" title="Stumble" alt=""></a></li>
+	        <li><a href="#"><img src="assets/linkedin_icon.png" title="Linked In" alt=""></a></li>
+	      </ul>
+	      <div class="clear"></div>
+	      <p> EXUSMED does not provide medical advice, diagnosis or treatment. See Additional Information.&copy; 2014 EXUSMED, INC <a href="#">ALL RIGHTS RESERVED</a> </p>
+	    </div>
+	  </div>
+	  <!-- footer ends--> 
+	  <!-- wrapper ends--> 
+		<!-- popup --> 
+		<!--<script type="text/javascript" src="js/jquery.easing.min.js"></script> 
+		<script type="text/javascript" src="js/jquery.bpopup.min.js"></script> -->
+		<!-- /popup --> 
+
+		<script type='text/javascript'>//<![CDATA[ 
+		$(window).load(function(){
+		$(function () {
+		    $("#htabs-outer").tabs();
+		    $("#vtabs").tabs().addClass("ui-tabs-vertical ui-helper-clearfix");
+		    $("#vtabs > ul > li").removeClass("ui-corner-top").addClass("ui-corner-left");
+		    $("#htabs-inner").tabs();
+			$("#htabs-inner2").tabs();
+			$("#htabs-inner3").tabs();
+
+		});
+		});//]]>  
+
+		function login_form_submit(form_id,form_type,form_name){
+			var login_params = [form_name+"_username", form_name+"_password"]
+			var my_arr = []
+			form_submit = true
+			if (form_type=="login") {					
+				$("#"+form_name+"_login_type")[0].value='login';
+				$("#"+form_id+" input[type='text']").each(function(e){
+					// if (this.id==form_name+"_username" || this.id==form_name+"_password") {
+					if ($.inArray(this.id, login_params) != -1 ) {
+						my_arr.push(this.value);
+					}					
+				});
+			} else{					
+				$("#"+form_name+"_login_type")[0].value='register';
+				$("#"+form_id+" input[id^='"+form_name+"']").each(function(e){
+					console.log(this);
+					if ($.inArray(this.id, login_params) == -1 ) {
+						my_arr.push(this.value);
+					}
+				});
+			};
+			for (var i = 0; i < my_arr.length; i++) {
+				console.log("value["+i+"] ="+my_arr[i]);
+				if(my_arr[i]=="")
+				{
+					form_submit = false
+				}
+			};
+			console.log("submit="+form_submit);
+			if (form_submit) {
+				$("#"+form_id).submit();
+			} else{
+				return false
+			};
+		}
+
+		</script> 
+		<!--<script type="text/javascript" src="js/login_tabs.js"></script> -->
+		<!--/tabs -->
+	</div>
+</body>
+</html>

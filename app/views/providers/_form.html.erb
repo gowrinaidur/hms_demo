@@ -1,0 +1,24 @@
+<%= form_for(@provider) do |f| %>
+	<% if @provider.errors.any? %>
+	<h1><%= pluralize(@provider.co) %>prohibited this provider from being saved:</h1>
+ 			<ul>
+      <% @provider.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+  <% end %>
+	<p><%= f.label :first_name %><%= f.text_field :first_name %></p>
+ 	<p><%= f.label :last_name %><%= f.text_field :last_name %></p>
+  <p><%= f.label :provider_name %><%= f.text_field :provider_name %></p>
+  <p><%= f.label :email %><%= f.text_field :email %></p>
+  <p><%= f.label :password %><%= f.password_field :password %></p>
+  <p><%= f.label :birth_date %><%= f.date_select :birth_date %></p>
+  <p><%= f.label :clinic_name %><%= f.text_field :clinic_name %></p>
+ 	<p><%= f.label :description %><%= f.text_field :description %></p>
+ 	<p><%= f.label :phone_number %><%= f.text_field :phone_number %></p>
+  <p><%= f.label :street_address %><%= f.text_area :street_address,:rows=>7 %></p>
+  <p><%= f.label :city %><%= f.text_field :city %></p>
+  <p><%= f.label :zip_code %><%= f.text_field :zip_code %></p>
+  <p><%= f.label :state %><%= f.text_field :state %></p>
+  <p><%= f.submit @provider.new_record? ? 'create' : 'update'%></p>
+<% end %>

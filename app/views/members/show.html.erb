@@ -1,0 +1,134 @@
+<div class="right_text_area">
+  <div class="patient_column fixed-div jspScrollable" tabindex="0" style="overflow: hidden; padding: 0px; width: 370px;">
+  <div class="jspContainer" style="width: 370px; height: 187px;">
+    <div class="jspPane" style="padding: 10px 15px 10px 10px; width: 330px; top: 0px;">
+      <div class="patient-left_area">
+      <ul class="patient-details">
+        <li><%= @member.first_name %> <%= @member.last_name %></li>
+        <li><%= @member.phone_number %></li>
+        <li><%= @member.street_address %></li>
+        <li><%= @member.city %><span><%= @member.state %> <%= @member.zip_code %></span></li>
+      </ul>
+      <ul class="patient-insurance-details">
+        <li>INSURANCE PROVIDER</li>
+        <li>PRIMARY PHYSICIAN</li>
+      </ul>
+      <ul class="patient-medical-details">
+        <li>MEDICAL HISTORY:</li>
+        <li>-CIRCULATORY/CHEST PAIN</li>
+      </ul>
+    </div>
+    <div class="patient-right_area">
+      <table>
+        <tbody><tr>
+          <td colspan="3"><img src="images/patient-profile_img.png" alt=""></td>
+          </tr>
+        <tr>
+          <td>Height</td>
+          <td>:</td>
+          <td><%= @member.height %></td>
+        </tr>
+        <tr>
+          <td>Weight</td>
+          <td>:</td>
+          <td><%= @member.weight %> lbs</td>
+        </tr>
+        <tr>
+          <td>Age</td>
+          <td>:</td>
+          <td>60</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="jspVerticalBar">
+    <div class="jspCap jspCapTop"></div>
+    <a class="jspArrow jspArrowUp jspDisabled"></a>
+    <div class="jspTrack" style="height: 153px;">
+      <div class="jspDrag" style="height: 137px; top: 0px;">
+        <div class="jspDragTop"></div>
+        <div class="jspDragBottom"></div>
+      </div>
+    </div>
+    <a class="jspArrow jspArrowDown"></a>
+    <div class="jspCap jspCapBottom"></div>
+  </div>
+  
+  </div>
+  </div>
+  <!-- patient_column ends--> 
+</div>
+
+
+<!-- <p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%#= @member.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%#= @member.last_name %>
+</p>
+
+<p>
+  <b>User name:</b>
+  <%#= @member.user_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%#= @member.email %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%#= @member.password %>
+</p>
+
+<p>
+  <b>Birth date:</b>
+  <%#= @member.birth_date %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%#= @member.phone_number %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%#= @member.height %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%#= @member.weight %>
+</p>
+
+<p>
+  <b>Street address:</b>
+  <%#= @member.street_address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%#= @member.city %>
+</p>
+
+<p>
+  <b>Zip code:</b>
+  <%#= @member.zip_code %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%#= @member.state %>
+</p>
+ -->
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>

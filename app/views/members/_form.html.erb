@@ -1,0 +1,41 @@
+<%= form_for(@member) do |f| %>
+  <table>
+    <tr>
+      <td><%= f.text_field :last_name,:class=>"input-1",:placeholder=>"last name" %></td>
+      <td><%= f.text_field :first_name,:class=>"input-1",:placeholder=>"first name" %></td>
+    </tr>
+    <tr>
+      <td><%= f.text_field :birth_date,:class=>"input-1",:placeholder=>"Birthdate 00/00/0000" %></td>
+      <td><%= f.text_field :phone_number,:class=>"input-1",:placeholder=>"Phone number" %></td>
+    </tr>
+    <tr>
+      <td><%= f.text_field :street_address,:class=>"input-1",:placeholder=>"Street address" %></td>
+      <td><%= f.text_field :city,:class=>"input-1",:placeholder=>"City" %></td>
+    </tr>
+    <tr>
+      <td><%= f.text_field :state,:class=>"input-1",:placeholder=>"State" %></td>
+      <td><%= f.text_field :zip_code,:class=>"input-1",:placeholder=>"Zip code" %></td>
+    </tr>
+     <tr>
+      <td colspan="2">
+        <%#= f.select :country,['country','india','United States of America','United Kingdom'],:class=>"select-model-3" %>
+       <select id="e4" class="select-model-3">
+          <option>country</option>
+          <option>india</option>
+          <option>United States of America</option>
+          <option>United Kingdom</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= f.text_field :email,:class=>"input-2",:placeholder=>"Email address" %>        
+      </td>
+    </tr>
+  </table>
+  <ul class="next">
+    <li>Step 1 of 6:</li>
+    <li class="next-button">
+      <input class="button" type="submit" value="next">
+    </li>
+  </ul>
+<% end %>

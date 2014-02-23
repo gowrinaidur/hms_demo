@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>:: Exusmed ::</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+
+<%#= stylesheet_link_tag "application", :media => "all" %>
+<% if content_for?(:header_tag) %>
+	<%= yield(:header_tag) %>	
+<% else %> 
+	<%= stylesheet_link_tag "exusmed" %>
+	<%= javascript_include_tag "application" %>
+<%end%>
+
+</head>
+
+<body>
+<div class="wrapper">
+  <div class="wrapper_in">
+    <div class="header">
+      <div class="logo"><%=link_to image_tag("logo.png"),root_path%>
+        <!-- <img src="images/logo.png" alt="Logo"> -->
+      </a></div>
+    <div class="payoff"><%=image_tag("payoff-img.png")%>
+      <!-- <img src="images/payoff-img.png" alt="payoff"> -->
+    </div>
+      <div class="login_column">
+        <ul>
+          <li><%= link_to "My appointments" %></a></li>
+          <li></li>
+        </ul>
+        <div class="log_out"><%= link_to "Log Out", "#"  %></div>
+      </div>
+    </div>
+
+    <!-- header ends-->
+    <div class="clear"></div>
+    <div class="main_content">
+      <div class="content">
+        <div class="left_menu">	        	 
+	        	<% if content_for?(:left_menu) %>
+						  <%= yield(:left_menu) %>
+						<% else %>						  
+		          <ul>
+		            <li class="video"><a href="#">Videos</a></li>
+		            <li class="news"><a href="#">news</a></li>
+		            <li class="blog"><a href="#">blogs</a></li>
+		          </ul>
+						<% end %>
+	        </div>
+        <!-- left_menu ends-->
+        <div class="content_section">
+          <!-- content_article ends-->          
+          <%= yield %>                    
+        </div>
+        <!-- content_section ends-->
+        <div class="right_menu">
+        	<% if content_for?(:right_menu) %>
+					  <%= yield(:right_menu) %>
+					<% else %>						  
+	          <ul>
+	            <li class="help"><a href="#">help</a></li>		            
+	          </ul>
+					<% end %>	          
+        </div>
+        <!-- right_menu ends--> 
+      </div>
+      <!-- content ends--> 
+    </div>
+    <!-- main_content ends-->
+    <div class="bottom_content">
+      <div class="bottom_content_inner">
+        <div class="left_column">
+          <%= link_to "NexusMD","#"%><span>My Nexus</span>
+          <!-- <a href="#">NexusMD</a><span>My Nexus</span> -->
+        </div>
+        <div class="mid_column">
+          <%= link_to "Recommend a Friend","#"%>
+         <!--  <a href="#">Recommend a Friend</a>  -->
+        </div>
+        <div class="right_column">
+          <%= link_to "HarmonyRX","#"%><span>My Pharmacy</span><span>launching June 02,2014</span>
+          <!-- <a href="#">HarmonyRX</a><span>My Pharmacy</span><span>launching June 02,2014</span> -->
+        </div>
+      </div>
+    </div>
+    <!-- bottom_column ends-->
+    <div class="clear"></div>
+  </div>
+  <!-- wrapper_in ends-->
+  <div class="footer">
+    <div class="footer_in">
+      <ul class="site_links">
+        <li>
+          <%= link_to "Contact us","#"%>
+          <!-- <a href="#">Contact us</a> -->
+        </li>
+        <li>-</li>
+        <li>
+          <%= link_to "privacy policy","#"%>
+         <!--  <a href="#">privacy policy </a> -->
+        </li>
+        <li>-</li>
+        <li>
+          <%= link_to "terms and conditions","#"%>
+          <!-- <a href="#">terms and conditions</a> -->
+        </li>
+        <li>-</li>
+        <li>
+          <%= link_to "security statement","#"%>
+          <!-- <a href="#">security statement</a> -->
+        </li>
+        <li>-</li>
+        <li>
+          <%= link_to "faq","#"%>
+          <!-- <a href="#">faq</a></li> -->
+        <li>-</li>
+        <li>
+          <%= link_to "investment","#"%>
+          <!-- <a href="#">investment</a> -->
+        </li>
+        <li>-</li>
+        <li>
+          <%= link_to "news","#"%>
+          <!-- <a href="#">news</a> -->
+        </li>
+        <li>-</li>
+        <li>
+          <%= link_to "videos","#"%>
+          <!-- <a href="#">videos</a> -->
+        </li>
+      </ul>
+      <ul class="social_icons">
+        <li>
+          <%= link_to image_tag("fb_icon.png",:title=>"Facebook"),"#"%>
+          <!-- <a href="#"><img src="images/fb_icon.png" title="Facebook" alt=""></a> -->
+        </li>
+        <li>
+          <%= link_to image_tag("yt_icon.png",:title=>"Youtube"),"#"%>
+          <!-- <a href="#"><img src="images/yt_icon.png" title="Youtube" alt=""></a> -->
+        </li>
+        <li>
+          <%= link_to image_tag("instagram.png",:title=>"instagram"),"#"%>
+          <!-- <a href="#"><img src="images/instagram.png" title="instagram" alt=""></a> -->
+        </li>
+        <li>
+          <%= link_to image_tag("twiter_icon.png",:title=>"Twitter"),"#"%>
+          <!-- <a href="#"><img src="images/twiter_icon.png" title="Twitter" alt=""></a> -->
+        </li>
+        <li>
+          <%= link_to image_tag("Stumble-icon.png",:title=>"Stumble"),"#"%>
+          <!-- <a href="#"><img src="images/Stumble-icon.png" title="Stumble" alt=""></a> -->
+        </li>
+        <li>
+          <%= link_to image_tag("linkedin_icon.png",:title=>"Linked In"),"#"%>
+          <!-- <a href="#"><img src="images/linkedin_icon.png" title="Linked In" alt=""></a> -->
+        </li>
+      </ul>
+      <div class="clear"></div>
+      <p> EXUSMED does not provide medical advice, diagnosis or treatment. See Additional Information.&copy; 2014 EXUSMED, INC <a href="#">ALL RIGHTS RESERVED</a> </p>
+    </div>
+  </div>
+  <!-- footer ends--> 
+</div>
+<!-- wrapper ends--> 
+<!-- <script type="text/javascript" src="js/scrollpane.min.js"></script>  -->
+<script type="text/javascript">
+  $(document).ready(function(){ 
+  $(function()
+    {
+    // Initialise the scrollpanes
+    $('.fixed-div').jScrollPane({showArrows: true});
+
+  });
+  });
+</script>
+</body>
+</html>

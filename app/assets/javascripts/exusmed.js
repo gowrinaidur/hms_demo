@@ -1,0 +1,17 @@
+//= require exusmed/jquery-1.7.1.js
+//= require exusmed/autocomplete.js
+//= require exusmed/autocomplete1.js
+//= require exusmed/autocomplete-data.js
+//= require exusmed/autocomplete-data1.js
+//= require exusmed/autocomplete-min.js
+//= require exusmed/datepicker.js
+//= require exusmed/jquery.bpopup.min.js
+//= require exusmed/jquery.hashchange.min.js
+//= require exusmed/jquery-1.9.1.js
+//= require exusmed/jquery.confirmon.js
+//= require exusmed/jquery.confirmon1.js
+//= require exusmed/jquery.easytabs.min.js
+//= require exusmed/login_tabs.js
+//= require exusmed/rating-bar.js
+//= require exusmed/scrollpane.min.js
+//= require exusmed/login_tabs.js

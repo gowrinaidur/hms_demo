@@ -1,0 +1,24 @@
+<h1>providers list</h1>
+<table border="1">
+	<tr>
+		<th>providerName</th>
+		<th>Email</th>
+		<th>clinic Name</th>
+		<th>Mobile</th>
+		<th>Edit</th>
+		<th>Delete</th>
+
+	</tr>
+		<% @providers.each do |provider| %>
+	<tr>
+		<td><%= link_to provider.provider_name, provider_path(provider) %></td>
+		<td><%= provider.email %></td>
+		<td><%= provider.clinic_name %></td>
+		<td><%= provider.phone_number %></td>
+		<td><%= link_to "edit",edit_provider_path(provider)%></td>
+		<td><%= link_to "delete",provider_path(provider),:confirm=>"Are u sure do u want to delete",:method=>:delete%></td>
+	</tr>
+		<%end%>
+</table></br>
+<%= link_to "new provider",new_provider_path%>
+

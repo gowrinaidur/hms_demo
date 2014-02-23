@@ -1,0 +1,13 @@
+<% if @provider %>
+	<div>
+		<p>First Name:<%= @provider.first_name %></p>
+		<p>Last Name:<%= @provider.last_name %></p>
+		<p>Provider Name:<%= @provider.provider_name %></p>
+		<p>Email:<%= @provider.email %></p>
+		<p>Clinic Name:<%= @provider.clinic_name %></p>
+		<p>Mobile:<%= @provider.phone_number%></p>
+	</div>
+<%else%>
+	<p>Records Are Not Found</p>
+<%end%>
+<%= link_to "providers list", providers_path %></p>

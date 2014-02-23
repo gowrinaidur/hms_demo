@@ -1,0 +1,60 @@
+<% content_for :header_tag do %>
+  <%= stylesheet_link_tag "exusmed/resets" %>
+  <%= stylesheet_link_tag "exusmed/exusmed_styles" %>
+  <%= stylesheet_link_tag "exusmed/home_styles" %>
+  <%= stylesheet_link_tag "exusmed/select2" %>
+  <%= javascript_include_tag "application" %>
+<% end %>
+<% content_for :left_menu do %>
+  <ul>
+    <li class="home"><a href="#">home</a></li>
+    <li class="about"><a href="#">about us</a></li>
+    <li class="program"><a href="#">programs</a></li>
+    <li class="video"><a href="#">Videos</a></li>
+    <li class="blog"><a href="#">blogs</a></li>
+  </ul>
+<% end %>
+<div class="content_article">
+  <h2>Anne chavez-staples</h2>
+  <h3>(member id  0000012210)</h3> 
+  <span>Patient info:</span>
+</div>
+<!-- content_article ends-->
+<div class="text_area">
+  <div class="left-text-area">
+    <ul>
+      <li><a href="#">Update profile</a></li>
+      <li><a href="#">Add/remove provider</a></li>
+      <li><a href="#">Add/remove third party</a></li>
+      <li><a href="#">Update payment info</a></li>
+    </ul>
+  </div>
+  <!-- left-text-area ends-->
+  <div class="right_text_area">
+    <%= render 'form' %>    
+  </div>
+  <!-- right_text_area ends--> 
+</div>
+<!-- text_area ends--> 
+<% content_for :right_menu do %>
+  <ul>
+    <li class="nextencounter"><a href="#">Next Encounter<span>00:00 min</span></a></li>
+    <li class="inbox"><a href="#">inbox</a></li>
+    <li class="help"><a href="#">help</a></li>
+    <li class="ehr"><a href="#">health records</a></li>
+  </ul>
+<% end %>
+<script type="text/javascript" src="js/select2.js"></script> 
+<script type="text/javascript">
+    $(document).ready(function() { 
+    $("#e1").select2(); 
+    $("#e2").select2();
+    $("#e3").select2();
+    $("#e4").select2(); 
+    $("#e5").select2(); 
+  });
+</script>
+
+<%#= render 'form' %>
+
+<%#= link_to 'Back', members_path %>
